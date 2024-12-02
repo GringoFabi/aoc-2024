@@ -1,12 +1,12 @@
 package gringo.fabi.aoc
 
-import gringo.fabi.aoc.day_01.similarityScore
-import gringo.fabi.aoc.day_01.toPairOfLists
+import gringo.fabi.aoc.day_02.numberOfSafeReports
+import gringo.fabi.aoc.day_02.toListOfReports
 import java.io.InputStream
-import gringo.fabi.aoc.day_01.RESOURCE as Day_01_RESOURCE_1
+import gringo.fabi.aoc.day_02.RESOURCE as Day_02_RESOURCE_1
 
 fun main() {
-    val result = readResourceToStream(Day_01_RESOURCE_1).toPairOfLists().similarityScore()
+    val result = readResourceToStream(Day_02_RESOURCE_1).toListOfReports().numberOfSafeReports()
     println("Result: $result")
 }
 
