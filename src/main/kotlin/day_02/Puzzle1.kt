@@ -7,7 +7,3 @@ fun Report.isSafe(): Boolean = when {
     isDescending() -> zipWithNext().all { (a, b) -> (a - b) in 1..3 }
     else -> false
 }
-
-fun Report.isAscending(): Boolean = zipWithNext().all { (a, b) -> a < b }
-
-fun Report.isDescending(): Boolean = zipWithNext().all { (a, b) -> a > b }
