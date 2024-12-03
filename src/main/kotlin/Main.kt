@@ -1,12 +1,12 @@
 package gringo.fabi.aoc
 
-import gringo.fabi.aoc.day_02.numberOfTolerantSafeReports
-import gringo.fabi.aoc.day_02.toListOfReports
+import gringo.fabi.aoc.day_03.findMatchesAndMultiply
+import gringo.fabi.aoc.day_03.readAsString
 import java.io.InputStream
-import gringo.fabi.aoc.day_02.RESOURCE as Day_02_RESOURCE_1
+import gringo.fabi.aoc.day_03.RESOURCE as Day_03_RESOURCE_1
 
 fun main() {
-    val result = readResourceToStream(Day_02_RESOURCE_1).toListOfReports().numberOfTolerantSafeReports()
+    val result = readResourceToStream(Day_03_RESOURCE_1).readAsString().findMatchesAndMultiply()
     println("Result: $result")
 }
 
