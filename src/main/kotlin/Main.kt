@@ -1,12 +1,12 @@
 package gringo.fabi.aoc
 
-import gringo.fabi.aoc.day_03.findFilteredMatchesAndMultiply
-import gringo.fabi.aoc.day_03.readAsString
+import gringo.fabi.aoc.day_04.countOccurrences
+import gringo.fabi.aoc.day_04.readToCharacterMatrix
 import java.io.InputStream
-import gringo.fabi.aoc.day_03.RESOURCE as Day_03_RESOURCE_1
+import gringo.fabi.aoc.day_04.RESOURCE as Day_04_RESOURCE_1
 
 fun main() {
-    val result = readResourceToStream(Day_03_RESOURCE_1).readAsString().findFilteredMatchesAndMultiply()
+    val result = readResourceToStream(Day_04_RESOURCE_1).readToCharacterMatrix().countOccurrences()
     println("Result: $result")
 }
 
