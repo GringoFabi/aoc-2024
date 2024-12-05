@@ -1,12 +1,13 @@
 package gringo.fabi.aoc
 
-import gringo.fabi.aoc.day_04.countCrossings
-import gringo.fabi.aoc.day_04.readToCharacterMatrix
+import day_05.foo
+import gringo.fabi.aoc.day_05.readToLines
+import gringo.fabi.aoc.day_05.splitAtEmptyRow
 import java.io.InputStream
-import gringo.fabi.aoc.day_04.RESOURCE as Day_04_RESOURCE_1
+import gringo.fabi.aoc.day_05.RESOURCE as Day_05_RESOURCE_1
 
 fun main() {
-    val result = readResourceToStream(Day_04_RESOURCE_1).readToCharacterMatrix().countCrossings()
+    val result = readResourceToStream(Day_05_RESOURCE_1).readToLines().splitAtEmptyRow().foo()
     println("Result: $result")
 }
 
