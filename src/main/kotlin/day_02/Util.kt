@@ -2,7 +2,7 @@ package gringo.fabi.aoc.day_02
 
 import java.io.InputStream
 
-const val RESOURCE = "02_1_input.txt"
+const val RESOURCE = "puzzles/02_1_input.txt"
 
 typealias Report = List<Int>
 
