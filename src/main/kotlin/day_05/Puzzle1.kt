@@ -1,7 +1,4 @@
-package day_05
-
-import gringo.fabi.aoc.day_05.readRules
-import gringo.fabi.aoc.day_05.toIntArrayList
+package gringo.fabi.aoc.day_05
 
 fun Pair<List<String>, List<String>>.validateOrdersAndCalculateMiddleSum(): Int {
     val rules = first.readRules()

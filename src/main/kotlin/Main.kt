@@ -1,8 +1,8 @@
 package gringo.fabi.aoc
 
-import day_05.validateOrdersAndCalculateMiddleSum
 import gringo.fabi.aoc.day_05.readToLines
 import gringo.fabi.aoc.day_05.splitAtEmptyRow
+import gringo.fabi.aoc.day_05.validateOrdersAndCalculateMiddleSum
 import java.io.InputStream
 import gringo.fabi.aoc.day_05.RESOURCE as Day_05_RESOURCE_1
 
