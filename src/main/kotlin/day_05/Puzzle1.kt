@@ -3,7 +3,7 @@ package day_05
 import gringo.fabi.aoc.day_05.readRules
 import gringo.fabi.aoc.day_05.toIntArrayList
 
-fun Pair<List<String>, List<String>>.foo(): Int {
+fun Pair<List<String>, List<String>>.validateOrdersAndCalculateMiddleSum(): Int {
     val rules = first.readRules()
     val printOrders = second.toIntArrayList()
 
