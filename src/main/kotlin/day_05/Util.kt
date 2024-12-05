@@ -17,3 +17,5 @@ fun List<String>.readRules(): Set<Pair<Int, Int>> = this.map { rule ->
 
 fun List<String>.toIntArrayList(): List<List<Int>> = this
     .map { row -> row.split(",").map { it.toInt() } }
+
+fun List<Int>.validate(rules: Set<Pair<Int, Int>>): Boolean = zipWithNext().all { rules.contains(it) }

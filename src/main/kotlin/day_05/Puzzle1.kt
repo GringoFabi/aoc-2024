@@ -11,5 +11,3 @@ fun Pair<List<String>, List<String>>.validateOrdersAndCalculateMiddleSum(): Int 
 }
 
 fun List<List<Int>>.applyRules(rules: Set<Pair<Int, Int>>) = filter { it.toList().validate(rules) }
-
-fun List<Int>.validate(rules: Set<Pair<Int, Int>>): Boolean = zipWithNext().all { rules.contains(it) }
