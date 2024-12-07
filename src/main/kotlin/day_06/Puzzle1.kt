@@ -1,32 +1,40 @@
 package gringo.fabi.aoc.day_06
 
-fun Pair<Array<CharArray>, Guard>.visitAllFieldsAndCountUnique(): Int {
-    val (map, guard) = this
+fun Map<Pair<Int, Int>, Char>.visitAllFields() = simulate().first.size
+
+fun Guard.visitAllPossibleFields(map: Array<CharArray>, visited: MutableSet<Triple<Int, Int, Direction>>): MutableSet<Pair<Int, Int>> {
     val uniqueFields = mutableSetOf<Pair<Int, Int>>()
-    uniqueFields.add(guard.position)
+    uniqueFields.add(position)
 
     while (true) {
-        val (x, y) = guard.position.first to guard.position.second
-        uniqueFields.add(guard.position)
+        val (x, y) = position
+        uniqueFields.add(position)
 
-        val (newX, newY) = when (guard.direction) {
+        // Track position and direction
+        if (!visited.add(Triple(x, y, direction))) {
+            break // If revisiting a state, stop the simulation
+        }
+
+        val (newX, newY) = when (direction) {
             Direction.UP -> Pair(x, y - 1)
             Direction.DOWN -> Pair(x, y + 1)
             Direction.LEFT -> Pair(x - 1, y)
             Direction.RIGHT -> Pair(x + 1, y)
         }
 
+        // Check bounds
         if (newX < 0 || newX >= map[0].size || newY < 0 || newY >= map.size) {
-            break
+            break // Guard leaves the field
         }
 
-        if (map[newY][newX] == '#') {
-            guard.turnRight()
+        val c = map[newY][newX]
+        if (c == '#') {
+            turnRight()
             continue
         }
 
-        guard.position = Pair(newX, newY)
+        position = Pair(newX, newY)
     }
 
-    return uniqueFields.size
+    return uniqueFields
 }

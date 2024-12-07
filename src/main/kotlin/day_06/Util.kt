@@ -53,3 +53,48 @@ data class Guard(
 enum class Direction(val char: Char) {
     UP('^'), DOWN('v'), LEFT('<'), RIGHT('>')
 }
+
+fun Map<Pair<Int, Int>, Char>.simulate(
+    obstructionPosition: Pair<Int, Int>? = null,
+): Pair<Set<Pair<Int, Int>>, Boolean> {
+    var (guardPosition, guardDirection) = entries.first { it.value == '^' }
+    var hasLoop = false
+    val visited = mutableSetOf<Pair<Pair<Int, Int>, Char>>()
+
+    while (true) {
+        if (visited.contains(guardPosition to guardDirection)) {
+            hasLoop = true
+            break
+        }
+
+        visited.add(guardPosition to guardDirection)
+        val targetPosition = guardPosition.nextPosition(guardDirection)
+
+        when {
+            this[targetPosition] == '#' || targetPosition == obstructionPosition -> guardDirection =
+                requireNotNull(CHANGE_DIRECTION_MAP[guardDirection])
+
+            // guard leaves the field
+            this[targetPosition] == null -> break
+
+            else -> guardPosition = targetPosition
+        }
+    }
+
+    return visited.map { it.first }.toSet() to hasLoop
+}
+
+private val CHANGE_DIRECTION_MAP = mapOf(
+    '^' to '>',
+    '>' to 'v',
+    'v' to '<',
+    '<' to '^',
+)
+
+private fun Pair<Int, Int>.nextPosition(direction: Char): Pair<Int, Int> = when (direction) {
+    '^' -> (first - 1) to second
+    '>' -> first to second + 1
+    'v' -> (first + 1) to second
+    '<' -> first to second - 1
+    else -> throw Exception("unknown guard direction $direction")
+}
